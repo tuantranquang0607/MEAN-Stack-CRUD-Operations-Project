@@ -10,37 +10,61 @@
                     <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name">
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
                             <label>Name: 
                                 <label class="red-text">*</label>
                             </label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Enter full name">
-                            <label>Name: 
-                                <label class="red-text">*</label>
-                            </label>
+                            <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Enter your position">
+                            <label>Position: </label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter full name">
-                            <label>Name: 
-                                <label class="red-text">*</label>
-                            </label>
+                            <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter your office">
+                            <label>Office: </label>
                         </div>
 
                         <div class="input-field col s12">
-                            <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Enter full name">
-                            <label>Name: 
-                                <label class="red-text">*</label>
-                            </label>
+                            <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Enter your salary">
+                            <label>Salary: </label>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn btn-custom right" (click)="resetForm(employeeForm)">Reset</button>
+                                <button class="btn btn-custom right" [disabled]="!employeeForm.valid">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col s7">
 
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                        </tr>
+                    </thead>
+
+                    <tr *ngFor="let emp of employeeService.employees">
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.position}}</td>
+                        <td>{{emp.office}}</td>
+                        <td>
+                            <a class="action-btn" (click)="onEdit(emp)">
+                                <i class="material-icons">Edit</i>
+                            </a>
+                            <a class="action-btn" (click)="onDelete(emp._id, employeeForm)">
+                                <i class="material-icons">Delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </div>
           </div>
         </div>
