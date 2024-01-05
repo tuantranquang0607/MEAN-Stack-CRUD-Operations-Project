@@ -12,7 +12,7 @@ declare var M: any;
   providers: [EmployeeService] 
 })
 export class EmployeeComponent implements OnInit {
-  constructor(private employeeService: EmployeeService) { } 
+  constructor(public employeeService: EmployeeService) { } 
 
   ngOnInit() {
     this.resetForm();
