@@ -1,6 +1,6 @@
 # MEAN-Stack-CRUD-Operations
 
-I follow a freeCodeCamp.org tutorial on YouTube to practice. This MEAN stack beginners tutorial shows how to implement CRUD (Create, Read, Update, and Delete) operations from scratch using the MEAN Stack (MongoDB, ExpressJS, AngularJS and NodeJS).<br><br> 
+I made an employee management web application using MEAN Stack(MongoDB, Express.js, Angular, and Node.js)
 
 
 # 💫 About Me:
